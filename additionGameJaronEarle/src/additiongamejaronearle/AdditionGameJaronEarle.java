@@ -39,10 +39,10 @@ public class AdditionGameJaronEarle
             }
             else 
             {
-                System.out.println("Incorrect!");
+                System.out.println("Incorrect! The answer is: " + correctAns);
             }
+            System.out.println("You have answered " + totalCorrect + " out of " + numQuestions);
         }
-        System.out.println("You scored " + totalCorrect + " out of " + numQuestions);
     }
     
 }
