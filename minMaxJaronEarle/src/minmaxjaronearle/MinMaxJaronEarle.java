@@ -1,7 +1,6 @@
 // Jaron Earle
 package minmaxjaronearle;
 
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class MinMaxJaronEarle
@@ -12,7 +11,7 @@ public class MinMaxJaronEarle
         int min;
         int max; 
         int num;
-        String answer;
+        int answer;
         String numIn;
         
         
@@ -24,9 +23,9 @@ public class MinMaxJaronEarle
      
         do 
         {
-            answer = JOptionPane.showInputDialog("Enter another number? y/n: ");
+            answer = JOptionPane.showConfirmDialog(null, "Enter another number?");
             
-            if (answer.equalsIgnoreCase("n")) 
+            if (answer == JOptionPane.NO_OPTION) 
             {
                 break;
             }
@@ -42,7 +41,7 @@ public class MinMaxJaronEarle
             {
                 min = num;
             }
-        } while (!answer.equalsIgnoreCase("n"));
+        } while (answer == JOptionPane.YES_OPTION);
         
  
         JOptionPane.showMessageDialog(null, "The min is: " + min + "\nThe max is: " + max);
