@@ -36,7 +36,7 @@ public class ComputingTaxesJaronEarle
             }
             else if (income <= 33950)
             {
-                tax = income * 0.10 + (income - 8350) * 0.15;
+                tax = 8350 * 0.10 + (income - 8350) * 0.15;
             }
             else if (income <= 82250)
             {
@@ -63,7 +63,7 @@ public class ComputingTaxesJaronEarle
             }
             else if (income <= 67900) 
             {
-                tax = income * 0.10 + (income - 16700) * 0.15;
+                tax = 16700 * 0.10 + (income - 16700) * 0.15;
             }
             else if (income <= 137050) 
             {
@@ -90,7 +90,7 @@ public class ComputingTaxesJaronEarle
             }
             else if (income <= 33950)
             {
-                tax = income * 0.10 + (income - 8350) * 0.15;
+                tax = 8350 * 0.10 + (income - 8350) * 0.15;
             }
             else if (income <= 68525) 
             {
@@ -117,7 +117,7 @@ public class ComputingTaxesJaronEarle
             }
             else if (income <= 45500) 
             {
-                tax = income * 0.10 + (income - 11950) * 0.15;
+                tax = 11950 * 0.10 + (income - 11950) * 0.15;
             }
             else if (income <= 117450) 
             {
