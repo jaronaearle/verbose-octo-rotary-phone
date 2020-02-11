@@ -33,7 +33,7 @@ public class MyTriangleJaronEarle
             area = area(a, b, c);
             type = triangleType(a, b, c);
             
-            System.out.printf("Your triangle is a %s triangle with area %.3f\n", type, area);
+            System.out.printf("Your triangle is a %s triangle with area %.3f\n", type, area); // displays area to 3 decimals
         }
         else
         {
@@ -48,7 +48,6 @@ public class MyTriangleJaronEarle
         triangle = sortSides(a, b, c);
         
         return triangle[0] + triangle[1] > triangle[2] ? true : false;
-       
     }
 
     public static double area(double a, double b, double c)
@@ -87,23 +86,24 @@ public class MyTriangleJaronEarle
 
     public static double[] sortSides(double a, double b, double c)
     {
+        double temp;
         double[] sorted;
 
         if (a > b)
         {
-            double temp = a;
+            temp = a;
             a = b;
             b = temp;
         }
         if (b > c)
         {
-            double temp = b;
+            temp = b;
             b = c;
             c = temp;
         }
         if (a > b)
         {
-            double temp = a;
+            temp = a;
             a = b;
             b = temp;
         }
