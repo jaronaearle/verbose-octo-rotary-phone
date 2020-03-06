@@ -30,17 +30,20 @@ public class AssignmentFourArraysJaronEarle
         }
         
         displayGpaCount(sGpa);
-        displayClassRank(sNums, sGpa);
+//        displayClassRank(sNums, sGpa);
     }
     
     public static void displayGpaCount(double[] sGpa) 
     {
         int[] count;
-        count = new int[8];
+        String[] stars;
         
-        for (int j = 0; j < count.length; j++) 
+        count = new int[8];
+        stars = new String[8];
+        
+        for (int i = 0; i < count.length; i++) 
             {
-                count[j] = 0;
+                count[i] = 0;
             }
             
         for (int i = 0; i < sGpa.length; i++) 
@@ -82,15 +85,42 @@ public class AssignmentFourArraysJaronEarle
             }
         }
         
+        for (int i = 0; i < count.length; i++) 
+        {
+            
+            int num;
+            StringBuilder s;
+            
+            num = count[i];
+            s = new StringBuilder();
+            
+                if (num % 10 > 5) 
+                {
+                    num = num + (10 - (num % 10)); 
+                }
+                else 
+                {
+                    num = num - (num % 10);
+                }
+                        
+            for (int j = 0; j < num; j += 10) 
+            {
+                s.append("*");
+            }
+            
+            stars[i] = s.toString();
+        }
+        
         // TODO: make display display ***** 
-        System.out.println("0 - 0.49 (" + count[0] + ")");
-        System.out.println("0.5 - 0.99 (" + count[1] + ")");
-        System.out.println("1.0 - 1.49 (" + count[2] + ")");
-        System.out.println("1.50 - 1.99 (" + count[3] + ")");
-        System.out.println("2.0 - 2.49 (" + count[4] + ")");
-        System.out.println("2.50 - 2.99 (" + count[5] + ")");
-        System.out.println("3.0 - 3.49 (" + count[6] + ")");
-        System.out.println("3.5 - 4.0 (" + count[7] + ")\n");
+        System.out.println("0 - 0.49 (" + count[0] + ") " + stars[0]);
+        System.out.println("0.5 - 0.99 (" + count[1] + ") " + stars[1]);
+        System.out.println("1.0 - 1.49 (" + count[2] + ") " + stars[2]);
+        System.out.println("1.50 - 1.99 (" + count[3] + ") " + stars[3]);
+        System.out.println("2.0 - 2.49 (" + count[4] + ") " + stars[4]);
+        System.out.println("2.50 - 2.99 (" + count[5] + ") " + stars[5]);
+        System.out.println("3.0 - 3.49 (" + count[6] + ") " + stars[6]);
+        System.out.println("3.5 - 4.0 (" + count[7] + ") " + stars[7]);
+        System.out.println("");
     }
     
     public static void displayClassRank(String[] sNums, double[] sGpa) 
