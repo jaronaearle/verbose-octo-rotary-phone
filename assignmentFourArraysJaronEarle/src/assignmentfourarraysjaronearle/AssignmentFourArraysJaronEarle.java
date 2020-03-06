@@ -30,6 +30,7 @@ public class AssignmentFourArraysJaronEarle
         }
         
         displayGpaCount(sGpa);
+        displayClassRank(sNums, sGpa);
     }
     
     public static void displayGpaCount(double[] sGpa) 
@@ -81,6 +82,7 @@ public class AssignmentFourArraysJaronEarle
             }
         }
         
+        // TODO: make display display ***** 
         System.out.println("0 - 0.49 (" + count[0] + ")");
         System.out.println("0.5 - 0.99 (" + count[1] + ")");
         System.out.println("1.0 - 1.49 (" + count[2] + ")");
@@ -88,7 +90,18 @@ public class AssignmentFourArraysJaronEarle
         System.out.println("2.0 - 2.49 (" + count[4] + ")");
         System.out.println("2.50 - 2.99 (" + count[5] + ")");
         System.out.println("3.0 - 3.49 (" + count[6] + ")");
-        System.out.println("3.5 - 4.0 (" + count[7] + ")");
+        System.out.println("3.5 - 4.0 (" + count[7] + ")\n");
+    }
+    
+    public static void displayClassRank(String[] sNums, double[] sGpa) 
+    {
+        for (int i = 0; i < sNums.length && i < sGpa.length; i++) 
+        {
+            if (sNums[i] != null && sGpa[i] != 0) 
+            {
+                System.out.println(sNums[i] + " " + sGpa[i]);
+            }
+        }
     }
 }
 
