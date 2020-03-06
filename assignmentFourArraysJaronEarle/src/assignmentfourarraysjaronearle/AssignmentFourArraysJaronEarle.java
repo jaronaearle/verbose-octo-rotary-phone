@@ -42,56 +42,53 @@ public class AssignmentFourArraysJaronEarle
                 count[j] = 0;
             }
             
-        for (int i = 0; i < sGpa.length; i++) // turn to method
+        for (int i = 0; i < sGpa.length; i++) 
         {
             if (sGpa[i] != 0) 
             {
                 if (sGpa[i] < 0.5) 
                 {
-                    System.out.println("0.0 - 0.5");
                     count[0] += 1;
                 }
                 else if (sGpa[i] >= 0.5 && sGpa[i] < 1.0) 
                 {
-                    System.out.println("0.5 - 1.0");
                     count[1] += 1;
                 }
                 else if (sGpa[i] >= 1.0 && sGpa[i] < 1.5) 
                 {
-                    System.out.println("1.0 - 1.5");
                     count[2] += 1;
                 }
                 else if (sGpa[i] >= 1.5 && sGpa[i] < 2.0) 
                 {
-                    System.out.println("1.5 - 2.0");
                     count[3] += 1;
                 }
                 else if (sGpa[i] >= 2.0 && sGpa[i] < 2.5) 
                 {
-                    System.out.println("2.0 - 2.5");
                     count[4] += 1;
                 }
                 else if (sGpa[i] >= 2.5 && sGpa[i] < 3.0) 
                 {
-                    System.out.println("2.5 - 3.0");
                     count[5] += 1;
                 }
                 else if (sGpa[i] >= 3.0 && sGpa[i] < 3.5) 
                 {
-                    System.out.println("3.0 - 3.5");
                     count[6] += 1;
                 }
                 else if (sGpa[i] >= 3.5 && sGpa[i] <= 4.0) 
                 {
-                    System.out.println("3.5 - 4.0");
                     count[7] += 1;
                 }      
             }
         }
-        for (int i = 0; i < count.length; i++) 
-        {
-            System.out.println("Student count: " + count[i]);
-        }
+        
+        System.out.println("0 - 0.49 (" + count[0] + ")");
+        System.out.println("0.5 - 0.99 (" + count[1] + ")");
+        System.out.println("1.0 - 1.49 (" + count[2] + ")");
+        System.out.println("1.50 - 1.99 (" + count[3] + ")");
+        System.out.println("2.0 - 2.49 (" + count[4] + ")");
+        System.out.println("2.50 - 2.99 (" + count[5] + ")");
+        System.out.println("3.0 - 3.49 (" + count[6] + ")");
+        System.out.println("3.5 - 4.0 (" + count[7] + ")");
     }
 }
 
