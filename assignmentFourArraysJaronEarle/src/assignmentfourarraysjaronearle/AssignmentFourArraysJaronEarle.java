@@ -17,7 +17,8 @@ public class AssignmentFourArraysJaronEarle
 
         sNums = new String[1000];
         sGpa = new double[1000];
-        gpaData = new Scanner(new File("studentdata.txt"));
+//        gpaData = new Scanner(new File("studentdata.txt")); ACTUAL DATA
+        gpaData = new Scanner(new File("smalldata.txt")); // SMALL TEST DATA SET
 
         // adds student data to arrays
         for (int i = 0; gpaData.hasNext(); i++)
@@ -29,8 +30,8 @@ public class AssignmentFourArraysJaronEarle
             sGpa[i] = gpa;
         }
         
-        displayGpaCount(sGpa);
-//        displayClassRank(sNums, sGpa);
+//        displayGpaCount(sGpa); ADD BACK WHEN DONE TESTING
+        displayClassRank(sNums, sGpa);
     }
     
     public static void displayGpaCount(double[] sGpa) 
@@ -87,7 +88,6 @@ public class AssignmentFourArraysJaronEarle
         
         for (int i = 0; i < count.length; i++) 
         {
-            
             int num;
             StringBuilder s;
             
@@ -111,7 +111,6 @@ public class AssignmentFourArraysJaronEarle
             stars[i] = s.toString();
         }
         
-        // TODO: make display display ***** 
         System.out.println("0 - 0.49 (" + count[0] + ") " + stars[0]);
         System.out.println("0.5 - 0.99 (" + count[1] + ") " + stars[1]);
         System.out.println("1.0 - 1.49 (" + count[2] + ") " + stars[2]);
@@ -125,11 +124,25 @@ public class AssignmentFourArraysJaronEarle
     
     public static void displayClassRank(String[] sNums, double[] sGpa) 
     {
-        for (int i = 0; i < sNums.length && i < sGpa.length; i++) 
+        int r;
+        int[] rank;
+        
+        rank = new int[1000];
+        
+        // SECOND FOR LOOP????
+        for (int i = 0; i < sNums.length; i ++) 
         {
-            if (sNums[i] != null && sGpa[i] != 0) 
+            if (sNums[i] != null && sGpa[i] > 0) 
             {
-                System.out.println(sNums[i] + " " + sGpa[i]);
+               if (sGpa[i] > sGpa[i + 1]) 
+               {
+                   r = 1;
+                   rank[i] = r;
+               }
+               else if (sGpa[i] == 0) // TODO FINISH THIS SHIT 
+               {
+               
+               }
             }
         }
     }
