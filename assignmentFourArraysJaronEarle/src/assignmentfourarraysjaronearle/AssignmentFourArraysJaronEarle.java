@@ -2,6 +2,7 @@
 package assignmentfourarraysjaronearle;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class AssignmentFourArraysJaronEarle
@@ -17,8 +18,7 @@ public class AssignmentFourArraysJaronEarle
 
         sNums = new String[1000];
         sGpa = new double[1000];
-//        gpaData = new Scanner(new File("studentdata.txt")); ACTUAL DATA
-        gpaData = new Scanner(new File("smalldata.txt")); // SMALL TEST DATA SET
+        gpaData = new Scanner(new File("studentdata.txt"));
 
         // adds student data to arrays
         for (int i = 0; gpaData.hasNext(); i++)
@@ -29,27 +29,27 @@ public class AssignmentFourArraysJaronEarle
             sNums[i] = sNum;
             sGpa[i] = gpa;
         }
-        
-//        displayGpaCount(sGpa); ADD BACK WHEN DONE TESTING
+
+        displayGpaCount(sGpa);
         displayClassRank(sNums, sGpa);
     }
-    
-    public static void displayGpaCount(double[] sGpa) 
+
+    public static void displayGpaCount(double[] sGpa)
     {
         int[] count;
         String[] stars;
-        
+
         count = new int[8];
         stars = new String[8];
-        
-        for (int i = 0; i < count.length; i++) 
-            {
-                count[i] = 0;
-            }
-            
-        for (int i = 0; i < sGpa.length; i++) 
+
+        for (int i = 0; i < count.length; i++)
         {
-            if (sGpa[i] != 0) 
+            count[i] = 0;
+        }
+
+        for (int i = 0; i < sGpa.length; i++)
+        {
+         if (sGpa[i] != 0) 
             {
                 if (sGpa[i] < 0.5) 
                 {
@@ -85,66 +85,97 @@ public class AssignmentFourArraysJaronEarle
                 }      
             }
         }
-        
-        for (int i = 0; i < count.length; i++) 
+
+        for (int i = 0; i < count.length; i++)
         {
             int num;
             StringBuilder s;
-            
+
             num = count[i];
             s = new StringBuilder();
-            
-                if (num % 10 > 5) 
-                {
-                    num = num + (10 - (num % 10)); 
-                }
-                else 
-                {
-                    num = num - (num % 10);
-                }
-                        
-            for (int j = 0; j < num; j += 10) 
+
+            if (num % 10 > 5)
+            {
+                num = num + (10 - (num % 10));
+            } else
+            {
+                num = num - (num % 10);
+            }
+
+            for (int j = 0; j < num; j += 10)
             {
                 s.append("*");
             }
-            
+
             stars[i] = s.toString();
         }
-        
-        System.out.println("0 - 0.49 (" + count[0] + ") " + stars[0]);
-        System.out.println("0.5 - 0.99 (" + count[1] + ") " + stars[1]);
-        System.out.println("1.0 - 1.49 (" + count[2] + ") " + stars[2]);
-        System.out.println("1.50 - 1.99 (" + count[3] + ") " + stars[3]);
-        System.out.println("2.0 - 2.49 (" + count[4] + ") " + stars[4]);
-        System.out.println("2.50 - 2.99 (" + count[5] + ") " + stars[5]);
-        System.out.println("3.0 - 3.49 (" + count[6] + ") " + stars[6]);
-        System.out.println("3.5 - 4.0 (" + count[7] + ") " + stars[7]);
+
+        for (int i = 0; i < count.length && i < stars.length; i++)
+        {
+            System.out.println("0 - 0.49 (" + count[i] + ") " + stars[i]);
+        }
         System.out.println("");
     }
-    
-    public static void displayClassRank(String[] sNums, double[] sGpa) 
+
+    public static void displayClassRank(String[] sNums, double[] sGpa)
     {
-        int r;
-        int[] rank;
-        
-        rank = new int[1000];
-        
-        // SECOND FOR LOOP????
-        for (int i = 0; i < sNums.length; i ++) 
+        double[] gpaForRank = new double[1000];
+        int[] ties = new int[1000];
+        int[] ranks = new int[1000];
+
+        for (int i = 0; i < sGpa.length; i++)
         {
-            if (sNums[i] != null && sGpa[i] > 0) 
+            for (int j = 0; j < sGpa.length; j++)
             {
-               if (sGpa[i] > sGpa[i + 1]) 
-               {
-                   r = 1;
-                   rank[i] = r;
-               }
-               else if (sGpa[i] == 0) // TODO FINISH THIS SHIT 
-               {
-               
-               }
+                if (sGpa[i] == sGpa[j])
+                {
+                    ties[i]++;
+                }
+            }
+        }
+
+        System.arraycopy(sGpa, 0, gpaForRank, 0, gpaForRank.length);
+
+        Arrays.sort(gpaForRank);
+
+        gpaForRank = reverse(gpaForRank);
+
+        for (int i = 0; i < sGpa.length; i++)
+        {
+            for (int j = 0; j < gpaForRank.length; j++)
+            {
+                if (sGpa[i] == gpaForRank[j])
+                {
+                    ranks[i] = j + 1;
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < sNums.length; i++)
+        {
+            if (sNums[i] != null && sGpa[i] > 0)
+            {
+                System.out.print(sNums[i] + "\t" + sGpa[i] + "\t");
+                if (ties[i] > 1)
+                {
+                    System.out.print("T");
+                }
+                System.out.println(ranks[i]);
             }
         }
     }
-}
 
+    public static double[] reverse(double[] arr)
+    {
+        for (int i = 0; i < arr.length / 2; i++)
+        {
+            double temp = arr[i];
+
+            arr[i] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = temp;
+        }
+
+        return arr;
+    }
+}
