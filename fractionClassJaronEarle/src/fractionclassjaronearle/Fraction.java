@@ -43,9 +43,19 @@ public class Fraction
         System.out.println(n + "/" + d);
     }
 
-    public String toMixed()
+    public String toMixed() // if w < 0, do not display 0 && fix negative number shit
     {
-        return "return here";
+        int w, p;
+        
+        if (this.numerator > this.denominator) 
+        {
+            w = this.numerator / this.denominator;
+            p = this.numerator % this.denominator;
+            
+            return w + " " + p + "/" + this.denominator;
+        }
+        
+        return this.numerator + "/" + this.denominator;
     }
     
     static int gcd(int a, int b) 
