@@ -16,6 +16,11 @@ public class FractionClassJaronEarle
                     new Fraction(23, 40),
                     new Fraction(3, 19)
                 };
+        
+        for (int i = 0; i < frac.length; i++) 
+        {
+            frac[i].reduce();
+        }
     }
     
 }

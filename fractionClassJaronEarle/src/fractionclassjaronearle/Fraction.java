@@ -2,38 +2,58 @@ package fractionclassjaronearle;
 
 public class Fraction
 {
-    private int numerator;
-    private int denominator;
-    
-    public Fraction() 
+
+    private final int numerator;
+    private final int denominator;
+
+    public Fraction()
     {
         numerator = 1;
         denominator = 1;
     }
-    
-    public Fraction(int num, int denom) 
+
+    public Fraction(int num, int denom)
     {
         numerator = num;
         denominator = denom;
     }
-    
-    public String toString() 
+
+    @Override
+    public String toString()
     {
-        return  this.numerator + "/" + this.denominator;
+        return this.numerator + "/" + this.denominator;
     }
-    
-    public double getDecimal() 
+
+    public double getDecimal()
     {
         return this.numerator / this.denominator;
     }
-    
-    public void reduce() 
+
+    public void reduce()
     {
-        System.out.println("reduce me!");
+        int n, d;
+        int div;
+        
+        div = gcd(this.numerator, this.denominator);
+        
+        n = this.numerator / div;
+        
+        d = this.denominator / div;
+        
+        System.out.println(n + "/" + d);
     }
-    
-    public String toMixed() 
+
+    public String toMixed()
     {
         return "return here";
+    }
+    
+    static int gcd(int a, int b) 
+    {
+        if (b == 0) 
+        {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 }
