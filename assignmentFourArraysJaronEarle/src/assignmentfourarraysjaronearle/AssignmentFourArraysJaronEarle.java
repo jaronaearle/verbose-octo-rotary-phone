@@ -32,6 +32,7 @@ public class AssignmentFourArraysJaronEarle
 
         displayGpaCount(sGpa);
         displayClassRank(sNums, sGpa);
+        
     }
 
     public static void displayGpaCount(double[] sGpa)
@@ -160,8 +161,13 @@ public class AssignmentFourArraysJaronEarle
                 if (ties[i] > 1)
                 {
                     System.out.print("T");
+                    System.out.print(ranks[i]);
+                    System.out.println(" with " + ties[i] + " others.");
                 }
-                System.out.println(ranks[i]);
+                else 
+                {
+                    System.out.println(ranks[i]);
+                }
             }
         }
     }
