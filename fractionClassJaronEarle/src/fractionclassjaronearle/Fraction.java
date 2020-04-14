@@ -51,7 +51,7 @@ public class Fraction
         this.denominator = this.denominator / div;
     }
 
-    public String toMixed() // when num = 1 DO NOT display 
+    public String toMixed() 
     {
         int w, p;
         
@@ -72,9 +72,6 @@ public class Fraction
             {
                 return w + " " + p + "/" + this.denominator;
             }
-//            return w < 0 ?
-//                    w + " " + -p + "/" + this.denominator :
-//                    w + " " + p + "/" + this.denominator; 
         }
         
         return this.numerator + "/" + this.denominator;

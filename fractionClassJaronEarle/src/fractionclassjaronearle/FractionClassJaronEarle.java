@@ -19,9 +19,8 @@ public class FractionClassJaronEarle
                     new Fraction(),
                     new Fraction(3, 9), 
                     new Fraction(12, 0),
-                    new Fraction(12, -5),
                     new Fraction(-12, -5),
-                    new Fraction(-75, -45)
+                    new Fraction(75, -45)
                 };
        
        do 
