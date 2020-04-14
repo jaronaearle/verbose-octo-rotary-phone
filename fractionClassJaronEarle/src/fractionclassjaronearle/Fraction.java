@@ -12,7 +12,7 @@ public class Fraction
         denominator = 1;
     }
 
-    public Fraction(int num, int denom) // move - to numerator if denominator is - 
+    public Fraction(int num, int denom)
     {
         if (denom < 0) 
         {
@@ -50,14 +50,14 @@ public class Fraction
     {
         int w, p;
         
-        if (this.numerator > this.denominator) 
+        if (Math.abs(this.numerator) > this.denominator) 
         {
             w = this.numerator / this.denominator;
             p = this.numerator % this.denominator;
-      
+            
             return w < 0 ?
-                    w + " " + p + "/" + -this.denominator :
-                    w + " " + p +"/" + this.denominator; 
+                    w + " " + -p + "/" + this.denominator :
+                    w + " " + p + "/" + this.denominator; 
         }
         
         return this.numerator + "/" + this.denominator;

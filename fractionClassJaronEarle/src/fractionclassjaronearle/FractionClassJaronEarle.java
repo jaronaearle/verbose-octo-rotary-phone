@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class FractionClassJaronEarle
 {
-
     public static void main(String[] args)
     {   
         int c;
@@ -21,7 +20,8 @@ public class FractionClassJaronEarle
                     new Fraction(3, 9), 
                     new Fraction(12, 5),
                     new Fraction(12, -5),
-                    new Fraction(-12, -5)
+                    new Fraction(-12, -5),
+                    new Fraction(-75, -45)
                 };
        
        do 
@@ -40,15 +40,18 @@ public class FractionClassJaronEarle
                {
                    case 1:
                        System.out.println(frac.toString());
+                       System.out.println("");
                        break;
                    case 2:
                        frac.reduce();
                        break;
                    case 3:
                        System.out.println(frac.toMixed());
+                       System.out.println("");
                        break;
                    case 4:
                        System.out.println(frac.getDecimal());
+                       System.out.println("");
                        break;
                    case 5:
                        q = false;
