@@ -3,8 +3,8 @@ package fractionclassjaronearle;
 public class Fraction
 {
 
-    private final int numerator;
-    private final int denominator;
+    private int numerator;
+    private int denominator;
 
     public Fraction()
     {
@@ -37,16 +37,13 @@ public class Fraction
 
     public void reduce()
     {
-        int n, d;
         int div;
         
         div = gcd(this.numerator, this.denominator);
         
-        n = this.numerator / div;
+        this.numerator = this.numerator / div;
         
-        d = this.denominator / div;
-        
-        System.out.println(n + "/" + d);
+        this.denominator = this.denominator / div;
     }
 
     public String toMixed() 
