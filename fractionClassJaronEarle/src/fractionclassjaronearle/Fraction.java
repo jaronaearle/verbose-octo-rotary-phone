@@ -12,10 +12,16 @@ public class Fraction
         denominator = 1;
     }
 
-    public Fraction(int num, int denom)
+    public Fraction(int num, int denom) // move - to numerator if denominator is - 
     {
-        numerator = num;
-        denominator = denom;
+        if (denom < 0) 
+        {
+            num *= -1;
+            denom *= -1;
+        }
+        
+        this.numerator = num;
+        this.denominator = denom;
     }
 
     @Override
@@ -26,7 +32,7 @@ public class Fraction
 
     public double getDecimal()
     {
-        return this.numerator / this.denominator;
+        return (double)this.numerator / this.denominator;
     }
 
     public void reduce()
@@ -43,7 +49,7 @@ public class Fraction
         System.out.println(n + "/" + d);
     }
 
-    public String toMixed() // if w < 0, do not display 0 && fix negative number shit
+    public String toMixed() 
     {
         int w, p;
         
@@ -51,8 +57,10 @@ public class Fraction
         {
             w = this.numerator / this.denominator;
             p = this.numerator % this.denominator;
-            
-            return w + " " + p + "/" + this.denominator;
+      
+            return w < 0 ?
+                    w + " " + p + "/" + -this.denominator :
+                    w + " " + p +"/" + this.denominator; 
         }
         
         return this.numerator + "/" + this.denominator;
@@ -60,10 +68,6 @@ public class Fraction
     
     static int gcd(int a, int b) 
     {
-        if (b == 0) 
-        {
-            return a;
-        }
-        return gcd(b, a % b);
+        return b == 0 ? a : gcd(b, a % b);
     }
 }

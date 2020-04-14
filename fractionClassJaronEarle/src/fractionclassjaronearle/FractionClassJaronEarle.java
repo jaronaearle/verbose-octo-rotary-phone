@@ -11,7 +11,8 @@ public class FractionClassJaronEarle
                     new Fraction(),
                     new Fraction(3, 9), 
                     new Fraction(12, 5),
-                    new Fraction(12, -5)
+                    new Fraction(12, -5),
+                    new Fraction(-12, -5)
                 };
         
         for (int i = 0; i < frac.length; i++) 
