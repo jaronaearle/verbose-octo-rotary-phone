@@ -19,6 +19,11 @@ public class Fraction
             num *= -1;
             denom *= -1;
         }
+       
+        if (denom == 0) 
+        {
+            denom = 1;
+        }
         
         this.numerator = num;
         this.denominator = denom;
@@ -46,7 +51,7 @@ public class Fraction
         this.denominator = this.denominator / div;
     }
 
-    public String toMixed() 
+    public String toMixed() // when num = 1 DO NOT display 
     {
         int w, p;
         
@@ -55,9 +60,21 @@ public class Fraction
             w = this.numerator / this.denominator;
             p = this.numerator % this.denominator;
             
-            return w < 0 ?
-                    w + " " + -p + "/" + this.denominator :
-                    w + " " + p + "/" + this.denominator; 
+            if (w < 0) 
+            {
+                return w + " " + -p + "/" + this.denominator;
+            }
+            else if (p == 0) 
+            {
+                return Integer.toString(w);
+            }
+            else 
+            {
+                return w + " " + p + "/" + this.denominator;
+            }
+//            return w < 0 ?
+//                    w + " " + -p + "/" + this.denominator :
+//                    w + " " + p + "/" + this.denominator; 
         }
         
         return this.numerator + "/" + this.denominator;
